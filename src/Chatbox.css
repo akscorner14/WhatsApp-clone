@@ -1,0 +1,88 @@
+.chatbox {
+  flex: 0.7;
+  display: flex;
+  flex-direction: column;
+}
+.chatbox_header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-left: 10px;
+  border-bottom: 1px solid lightgrey;
+  margin-top: 5px;
+}
+.chatbox_headerInfo {
+  flex: 1;
+  padding-left: 20px;
+}
+.chatbox_headerInfo > h3 {
+  margin-bottom: 3px;
+  font-weight: 500;
+}
+.chatbox_headerInfo > p {
+  color: grey;
+}
+.chatbox_body {
+  flex: 1;
+  background-image: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png");
+  background-repeat: repeat;
+  background-position: center;
+  padding: 30px;
+  overflow: auto;
+}
+.chatbox_bodyMessage {
+  font-size: 16px;
+  position: relative;
+  padding: 10px;
+  width: fit-content;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  background-color: #ffffff;
+}
+.good {
+  margin-bottom: 0;
+}
+.time {
+  margin-left: 10px;
+  font-size: xx-small;
+  font-weight: 700;
+}
+.name {
+  position: absolute;
+  top: -15px;
+  font-weight: 800;
+  font-size: xx-small;
+}
+.chatReceiver {
+  margin-left: auto;
+  background-color: #dcf8c6;
+}
+.chatbox_bottom {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  border-top: 1px solid lightgrey;
+}
+.chatbox_bottom > form {
+  display: flex;
+  flex: 1;
+}
+.chatbox_bottom > form > button {
+  display: none;
+}
+.chatbox_bottom > form > input {
+  flex: 1;
+  outline: none;
+  border-radius: 30px;
+  padding: 10px;
+  border: none;
+}
+.chatbox_bottom > .MuiSvgIcon-root {
+  color: grey;
+  padding: 10px;
+}
+/* #scroll {
+  position: absolute;
+  bottom: 10px;
+} */

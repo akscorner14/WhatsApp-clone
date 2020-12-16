@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+}
+.app {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #dadbd3;
+}
+.app_content {
+  display: flex;
+  height: 93vh;
+  width: 90%;
+  background-color: #ededed;
+  margin-top: -10px;
+  box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.75);
+}
+div #random {
+  color: black;
+  font-size: medium;
+}
+
+div #google {
+  color: red;
+  margin-left: 20px;
+  font-size: medium;
+}
+.fa-google {
+  margin-left: 5px;
+  color: red;
+}
+.material-icons {
+  margin-left: 5px;
+}
