@@ -21,12 +21,12 @@ function Sidebar({ setRoom, room }) {
   }, []);
   useEffect(() => {
     noRoom.forEach(function (each) {
-      if (each.name == lastRoom) {
+      if (each.name === lastRoom) {
         each.mes = last;
         setLastRoom(null);
       }
     });
-  }, [last]);
+  }, [last, lastRoom, noRoom]);
   const retreive = () => {
     if (name) {
       db.collection("rooms")
@@ -51,7 +51,7 @@ function Sidebar({ setRoom, room }) {
             .get()
             .then(function (querySnapshot) {
               querySnapshot.forEach(function (doc) {
-                if (doc.data().uid == auth.currentUser.uid) {
+                if (doc.data().uid === auth.currentUser.uid) {
                   setNoRoom((prev) => [
                     ...prev,
                     {
@@ -66,7 +66,7 @@ function Sidebar({ setRoom, room }) {
               console.log("Error getting documents: ", error);
             });
         }
-        if (change.type == "modified") {
+        if (change.type === "modified") {
           setLastRoom(change.doc.id);
           setLast(change.doc.data().lastMsg);
 
@@ -76,7 +76,7 @@ function Sidebar({ setRoom, room }) {
             .get()
             .then(function (querySnapshot) {
               querySnapshot.forEach(function (doc) {
-                if (doc.data().uid == auth.currentUser.uid) {
+                if (doc.data().uid === auth.currentUser.uid) {
                   setNoRoom((prev) => [
                     ...prev,
                     {

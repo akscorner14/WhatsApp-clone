@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./Chatbox.css";
 import firebase from "firebase";
 import { auth, db } from "./firebase";
@@ -13,14 +13,12 @@ function Chatbox({ room }) {
   const [disName, setDisName] = useState("");
   const [text, setText] = useState("");
   const [message, setMessage] = useState([]);
-  const dummy = useRef();
   useEffect(() => {
     if (!auth?.currentUser.displayName)
       setDisName(auth?.currentUser.email.split("@")[0]);
     else setDisName(auth?.currentUser.displayName.split(" ")[0]);
   }, []);
   useEffect(() => {
-    setTimeout(scrollToBottom, 1000);
     const unsubscribe = db
       .collection("rooms")
       .doc(room)
@@ -29,7 +27,7 @@ function Chatbox({ room }) {
       .onSnapshot(function (snapshot) {
         setMessage([]);
         snapshot.forEach(function (doc) {
-          if (auth.currentUser.uid == doc.data().uid)
+          if (auth.currentUser.uid === doc.data().uid)
             setMessage((message) => [
               ...message,
               {
@@ -55,9 +53,6 @@ function Chatbox({ room }) {
       unsubscribe();
     };
   }, [room]);
-  useEffect(() => {
-    setTimeout(scrollToBottom, 300);
-  }, [message]);
 
   const textSubmit = (e) => {
     e.preventDefault();
@@ -73,11 +68,6 @@ function Chatbox({ room }) {
       lastMsg: text,
     });
     setText("");
-    setTimeout(scrollToBottom, 300);
-  };
-
-  const scrollToBottom = () => {
-    dummy.current.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -118,7 +108,7 @@ function Chatbox({ room }) {
               min = new Date().getMinutes();
             }
 
-            if (each.number == 1) {
+            if (each.number === 1) {
               return (
                 <div>
                   <div className="chatbox_bodyMessage">
@@ -143,7 +133,6 @@ function Chatbox({ room }) {
                 </div>
               );
           })}
-        <div ref={dummy}></div>
       </div>
 
       <div className="chatbox_bottom">
